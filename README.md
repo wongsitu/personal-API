@@ -13,7 +13,7 @@ Please fork & clone this repo to get started.
 ## Part 0. Deploy to Heroku
 Before we start coding, our first goal together is to configure our application so that it can be deployed to Heroku (a web application host).
 
-Follow the instructions here: [Deploying Express Apps to Heroku](https://github.com/SF-WDI-LABS/shared_modules/blob/master/how-to/heroku-mean-stack-deploy.md)
+Follow the instructions here: [Deploying Express Apps to Heroku](https://git.generalassemb.ly/sf-wdi-45/how-to-heroku/blob/master/README.md)
 
 As you continue to work on this project, you'll need to remember to push your changes to heroku (just like you would with github!):
 
@@ -37,7 +37,7 @@ Now that we're deployed, it's time to start coding your "personal" api!
     - One cool way to do this is to create an endpoint at `/api` that describes all the available endpoints. We've set you up with an example in `server.js`. Make sure to update it to fill it in with your own information!
         + Here's a good example student `/api` endpoint:
          <img width="500" alt="example api documentation" src="https://cloud.githubusercontent.com/assets/1489337/22841538/dc0b7f26-ef86-11e6-9a56-013bbe51792a.png">
-        
+
         + See the [Open API Initiative](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#paths-object-example) for what this looks like in practice.
 - **A Profile Endpoint** (`/api/profile`) that responds with *hard-coded* data:
 

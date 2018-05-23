@@ -1,10 +1,10 @@
 // require express and other modules
-var express = require('express'),
-    app = express();
+const express = require('express');
+const app = express();
 
 // parse incoming urlencoded form data
 // and populate the req.body object
-var bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // allow cross origin requests (optional)
@@ -19,7 +19,7 @@ app.use(function(req, res, next) {
  * DATABASE *
  ************/
 
-// var db = require('./models');
+// const db = require('./models');
 
 /**********
  * ROUTES *
@@ -42,7 +42,7 @@ app.get('/', function homepage(req, res) {
  * JSON API Endpoints
  */
 
-app.get('/api', function apiIndex(req, res) {
+app.get('/api', (req, res) => {
   // TODO: Document all your api endpoints below as a simple hardcoded JSON object.
   // It would be seriously overkill to save any of this to your database.
   // But you should change almost every line of this response.
@@ -64,6 +64,6 @@ app.get('/api', function apiIndex(req, res) {
  **********/
 
 // listen on the port that Heroku prescribes (process.env.PORT) OR port 3000
-app.listen(process.env.PORT || 3000, function () {
+app.listen(process.env.PORT || 3000, () => {
   console.log('Express server is up and running on http://localhost:3000/');
 });
