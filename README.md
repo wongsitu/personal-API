@@ -13,7 +13,7 @@ Please fork & clone this repo to get started.
 ## Part 0. Deploy to Heroku
 Before we start coding, our first goal together is to configure our application so that it can be deployed to Heroku (a web application host).
 
-Follow the instructions here: [Deploying Express Apps to Heroku](https://git.generalassemb.ly/sf-wdi-45/how-to-heroku/blob/master/README.md)
+Follow the instructions here: [Deploying Express Apps to Heroku](https://git.generalassemb.ly/sf-wdi/how-to-heroku/blob/master/README.md)
 
 As you continue to work on this project, you'll need to remember to push your changes to heroku (just like you would with github!):
 
