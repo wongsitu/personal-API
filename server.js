@@ -19,7 +19,7 @@ app.use(function(req, res, next) {
  * DATABASE *
  ************/
 
-// const db = require('./models');
+const db = require('./models');
 
 /**********
  * ROUTES *
@@ -37,26 +37,46 @@ app.get('/', function homepage(req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-
-/*
- * JSON API Endpoints
- */
-
-app.get('/api', (req, res) => {
-  // TODO: Document all your api endpoints below as a simple hardcoded JSON object.
-  // It would be seriously overkill to save any of this to your database.
-  // But you should change almost every line of this response.
-  res.json({
-    woopsIForgotToDocumentAllMyEndpoints: true, // CHANGE ME ;)
-    message: "Welcome to my personal api! Here's what you need to know!",
-    documentationUrl: "https://github.com/example-username/express-personal-api/README.md", // CHANGE ME
-    baseUrl: "http://YOUR-APP-NAME.herokuapp.com", // CHANGE ME
-    endpoints: [
-      {method: "GET", path: "/api", description: "Describes all available endpoints"},
-      {method: "GET", path: "/api/profile", description: "Data about me"}, // CHANGE ME
-      {method: "POST", path: "/api/campsites", description: "E.g. Create a new campsite"} // CHANGE ME
-    ]
+//Show all
+app.get('/api/cards', (req, res) => {
+  db.Card.find((err,cards)=>{
+    if(err){console.log(err)}
+    res.json({data:cards});
   })
+});
+
+//Show one
+app.get('/api/cards/:id', (req, res) => {
+  let cardId = req.params.id
+  db.Card.findOne({_id: cardId},(err,cards)=>{
+    if(err){console.log(err)}
+    res.json({data:cards});
+  })
+});
+
+//Create one
+app.post('/api/cards', (req, res) => {
+  // create a temp variable with form data (`req.body`)
+  var newCard = new db.Card({
+    cardType: req.body.cardType,
+    name: req.body.name,
+    type: req.body.type,
+    Attribute: req.body.Attribute,
+  })
+  // create new todo in db
+  db.Card.create(newCard, (err, savedCard) => {
+      if(err) { return console.log(err) }
+      console.log("saved new cards: ", savedCard.name);
+      res.json({data:savedCard});  
+  });
+});
+
+app.delete('/api/cards/:id', (req, res) => {
+  let cardId = req.params.id
+  db.Card.deleteOne({ _id: cardId }, (err,deletedCard)=>{
+    if(err){console.log(err)}
+    res.json({data: deletedCard})
+  });
 });
 
 /**********
