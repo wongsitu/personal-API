@@ -1,10 +1,22 @@
 body {
   color: #333;
   font-family: Helvetica, Arial, sans-serif;
-  background-color: skyblue; /* Sanity Check! */
+  background-image: url("../images/YugiohBackground.jpg");
+  background-position: center;
 }
 
 h1 {
   margin-top: 100px;
   text-align: center;
 }
+
+p{
+  color: white;
+  border-top: 1px solid white;
+}
+
+button{
+  margin: 0.5em;
+  color: black;
+}
+

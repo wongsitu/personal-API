@@ -45,7 +45,7 @@ $(document).ready(function(){
         var cards = json.data;
         console.log(cards);
         cards.forEach(card => {
-            $("#cardsDisplay").append(`<p>${card.name} | ${card.type} | ${card.Attribute} <button class="deleteBtn" type="delete" data-id=${card._id}>Delete</button></p>`);
+            $("#cardsDisplay").append(`<p>${card.name} | ${card.type} | ${card.Attribute} <button>Update</button><button class="deleteBtn" type="delete" data-id=${card._id}>Delete</button></p>`);
         });
     }
 
@@ -55,10 +55,6 @@ $(document).ready(function(){
     }
 
     function deleteCardSuccess(json) {
-        // var cards = json.data;
-        // console.log(cards)
-        // var cardId = cards._id;
-        // console.log(cardId);
         window.location.reload();
     }
 });

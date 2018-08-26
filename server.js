@@ -71,6 +71,21 @@ app.post('/api/cards', (req, res) => {
   });
 });
 
+//Update
+app.put("/api/cards/:id", (req,res)=>{
+  let cardToUpdateId = req.params.id;
+  console.log(req.body);
+  
+  let newCard = req.body
+  db.Card.findOneAndUpdate(
+    {_id: cardToUpdateId},
+    newCard,
+    {new:true},(err,updatedCard)=>{
+      if (err){return console.log(err)}
+      res.json({data:updatedCard});
+    });
+});
+
 app.delete('/api/cards/:id', (req, res) => {
   let cardId = req.params.id
   db.Card.deleteOne({ _id: cardId }, (err,deletedCard)=>{
