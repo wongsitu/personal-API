@@ -43,11 +43,33 @@ $(document).ready(function(){
 
     function handleSuccess(json){
         var cards = json.data;
-        console.log(cards);
         cards.forEach(card => {
-            $("#cardsDisplay").append(`<p>${card.name} | ${card.type} | ${card.Attribute} <button>Update</button><button class="deleteBtn" type="delete" data-id=${card._id}>Delete</button></p>`);
+            $("#cardsDisplay").append(`<p>
+                                        ${card.name} | ${card.type} | ${card.Attribute} 
+                                        <button class="updateForm">Update</button>
+                                        <button class="deleteBtn" type="delete" data-id=${card._id}>Delete</button>
+                                    </p>
+                                    <form action="" id="updatedCardForm">
+                                        <input type="text" placeholder="cardType" name="cardType">
+                                        <input type="text" placeholder="name" name="name">
+                                        <input type="text" placeholder="type" name="type">
+                                        <input type="text" placeholder="attribute" name="Attribute">
+                                        <button type="submit" class="btn btn-default">Update</button>
+                                    </form>`);
         });
     }
+
+    $("#cardsDisplay").on("click",".updateForm",function(){
+        $(this).parent().next().toggle("display");
+
+        // $.ajax({
+        //     method: "PUT",
+        //     url:"",
+        //     success: SuccessFunction,
+        //     error: ErrorFunction
+        // });
+    })
+
 
     function handleError(e) {
         console.log('uh oh');
